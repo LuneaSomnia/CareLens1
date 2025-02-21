@@ -1,0 +1,42 @@
+{
+  "name": "carelens",
+  "version": "1.0.0",
+  "description": "A modern preventive healthcare web application with snowflake theme",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.4",
+    "framer-motion": "^10.16.4",
+    "tailwindcss": "^3.3.0",
+    "axios": "^1.6.2",
+    "zod": "^3.22.4",
+    "react-redux": "^9.0.4",
+    "chart.js": "^4.4.1",
+    "react-chartjs-2": "^5.2.0",
+    "@auth0/auth0-react": "^2.2.4",
+    "date-fns": "^2.30.0",
+    "react-query": "^3.39.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/jest-dom": "^6.1.5",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "prettier": "^3.1.1"
+  }
+}

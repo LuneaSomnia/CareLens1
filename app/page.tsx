@@ -28,13 +28,13 @@ export default function Home() {
   }, []);
 
   const features = [
-    { emoji: '👤', label: 'User Profile', delay: 0 },
-    { emoji: '🔬', label: 'Health Risk Assessment', delay: 1 },
-    { emoji: '📚', label: 'Educational Resources', delay: 2 },
-    { emoji: '🔍', label: 'Symptom Checker', delay: 3 },
-    { emoji: '🏃', label: 'Lifestyle Monitoring', delay: 4 },
-    { emoji: '📋', label: 'Prevention Strategies', delay: 5 },
-    { emoji: '🌐', label: 'Connected Care', delay: 6 }
+    { emoji: '👤', label: 'User Profile', href: '/profile', delay: 0 },
+    { emoji: '🔬', label: 'Health Risk Assessment', href: '/risk-assessment', delay: 1 },
+    { emoji: '📚', label: 'Educational Resources', href: '/education', delay: 2 },
+    { emoji: '🔍', label: 'Symptom Checker', href: '/symptom-checker', delay: 3 },
+    { emoji: '🏃', label: 'Lifestyle Monitoring', href: '/lifestyle', delay: 4 },
+    { emoji: '📋', label: 'Prevention Strategies', href: '/prevention', delay: 5 },
+    { emoji: '🌐', label: 'Connected Care', href: '/connected-care', delay: 6 }
   ];
 
   return (
@@ -60,16 +60,36 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* Feature Icons Grid */}
-        <div className="feature-grid">
-          {features.map((feature, index) => (
-            <FeatureIcon
-              key={index}
-              emoji={feature.emoji}
-              label={feature.label}
-              delay={feature.delay}
-            />
-          ))}
+        {/* Feature Icons Grid in Snowflake Pattern */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Center icon */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <FeatureIcon {...features[0]} />
+          </div>
+
+          {/* Surrounding icons in hexagonal pattern */}
+          {features.slice(1).map((feature, index) => {
+            const angle = (index * (360 / 6)) * (Math.PI / 180);
+            const radius = 200; // Adjust this value to change the spread
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+
+            return (
+              <div
+                key={index}
+                className="absolute"
+                style={{
+                  transform: `translate(${x}px, ${y}px)`,
+                  left: '50%',
+                  top: '50%'
+                }}
+              >
+                <FeatureIcon {...feature} />
+              </div>
+            );
+          })}
         </div>
       </main>
     </div>
+  );
+          }

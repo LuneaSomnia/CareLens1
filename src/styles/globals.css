@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-frost-blue: #E3F4F4;
+  --color-frost-purple: rgba(147, 51, 234, 0.5);
+  --color-frost-pink: rgba(236, 72, 153, 0.3);
+}
+
+.bg-gradient-frost {
+  background: linear-gradient(135deg, 
+    var(--color-frost-blue) 0%,
+    #C4DFDF 50%,
+    var(--color-frost-purple) 100%
+  );
+}
+
+.feature-icon {
+  @apply relative flex items-center justify-center w-24 h-24
+         bg-white/20 backdrop-blur-md rounded-lg
+         border border-white/30 shadow-xl
+         transition-all duration-500 cursor-pointer
+         hover:scale-110 hover:rotate-[360deg];
+}
+
+.feature-icon::before {
+  content: '';
+  @apply absolute inset-0 bg-white/10 rounded-lg opacity-0
+         transition-opacity duration-500;
+}
+
+.feature-icon:hover::before {
+  @apply opacity-100;
+}
+
+.feature-icon-label {
+  @apply absolute -bottom-8 text-center w-full
+         text-sm font-medium text-deepBlue
+         opacity-0 transform translate-y-2
+         transition-all duration-300;
+}
+
+.feature-icon:hover .feature-icon-label {
+  @apply opacity-100 transform translate-y-0;
+}
+
+.snowflake {
+  @apply fixed pointer-events-none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.feature-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+         gap-12 max-w-6xl mx-auto mt-16;
+}
